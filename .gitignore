@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# mongo_data files
+mongo_data/
+
+# vscode config files
+.vscode/

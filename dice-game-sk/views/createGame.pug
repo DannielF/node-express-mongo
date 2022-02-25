@@ -1,0 +1,30 @@
+html
+  head
+    title Create Game
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+  style
+    include ../styles/style.css
+  body
+    div(class="container")
+      h1(class="container-dice--title") Dice game setup:
+      form(action="/createGame", method="post", class="container-dice--form")
+        input(class="container-dice--input", 
+              type="text",
+              name="gamer", 
+              value="",
+              placeholder="gamer" required)
+        input(class="container-dice--input", 
+              type="text",
+              name="gamer", 
+              value="",
+              placeholder="gamer" required)
+        input(class="container-dice--input", 
+              type="text",
+              name="gamer", 
+              value="",
+              placeholder="gamer" required)
+        input(class="container-dice--input", 
+              type="submit",
+              value="Create Game")
+      a(class="container-dice--backHome", href="/") Back to Home
