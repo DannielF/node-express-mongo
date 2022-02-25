@@ -18,12 +18,33 @@ router.post('/', (req, res, next) => {
     const game = new CreateGame({
       id: uuid(),
       type: "",
-      gamers: gamer
-      
+      gamers: [{
+        id: uuid(),
+        name: gamer[0],
+      },{
+        id: uuid(),
+        name: gamer[1],
+      },{
+        id: uuid(),
+        name: gamer[2],
+      }]
     });
     game.save()
-      .then((resDb) => {res.json(resDb)})
-      .catch((err) => {err});
+      .then((resDb) => {res.status(201).json(
+        {
+          id: resDb.id,
+          type: "",
+          gamers: {
+            1: resDb.gamers[0].name,
+            2: resDb.gamers[1].name,
+            3: resDb.gamers[2].name,
+          }
+        }
+      )})
+      .catch((err) => {res.status(404).json({
+        error: err,
+        message: "Game creation failed"
+      })});
       
     // CreateGame.deleteMany({})
     //   .then((resMongo) => {console.log(resMongo)})

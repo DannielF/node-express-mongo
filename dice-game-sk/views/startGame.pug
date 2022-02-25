@@ -8,7 +8,12 @@ html
   body
     div(class="container")
       h1(class="container-dice--title") Dice game start:
-      form(action="/startGame", method="post", class="container-dice--form")
+      form(action="/startGame", method="post", class="container-dice--form")  
+        input(class="container-dice--input", 
+              type="text",
+              name="id", 
+              value="",
+              placeholder="id game" required)
         input(class="container-dice--input", 
               type="text",
               name="gamerBet", 

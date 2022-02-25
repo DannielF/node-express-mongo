@@ -14,8 +14,7 @@ const createGameSchema = new Schema({
     default: '',
   },
   gamers: [{
-    type: String,
-    lowercase: true,
+    id: String, name: String
   }]
 });
 
