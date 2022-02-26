@@ -1,6 +1,14 @@
+/**
+ * Dependencies
+ */
 const express = require('express');
 const cors = require('cors');
 
+/**
+ * Mongoose connection
+ * Routes
+ * Error handling
+ */
 const { mongoConnect } = require('./db/mongo.connect');
 const routerApi = require('./routes');
 const { logErrors, errorHandler} = require('./middlewares/error.handler');
@@ -9,6 +17,9 @@ mongoConnect();
 const app = express();
 const port = process.env.PORT || 3000;
 
+/**
+ * middlewares
+ */
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));

@@ -1,7 +1,17 @@
+/**
+ * @author Daniel Granados
+ * @since 02/26/2022
+ * @version 1.0.0
+ */
 const express = require('express');
+const CreateGame = require('../models/createGame.model');
 
 const router = express.Router();
 
+/**
+ * @description GET /startGame
+ * Render view startGame
+ */
 router.get('/', (req, res, next) => {
   try {
     res.status(200).render('startGame', {});
@@ -10,6 +20,10 @@ router.get('/', (req, res, next) => {
   }
 });
 
+/**
+ * @description POST /startGame
+ * Start a bet
+ */
 router.post('/', (req, res, next) => {
   try {
     const { id, gamerBet } = req.body;

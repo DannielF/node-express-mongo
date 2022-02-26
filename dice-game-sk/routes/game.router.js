@@ -1,9 +1,18 @@
+/**
+ * @author Daniel Granados
+ * @since 02/26/2022
+ * @version 1.0.0
+ */
 const express = require('express');
 const CreateGame = require('../models/createGame.model');
 const { uuid } = require('../utils/uuidRandom');
 
 const router = express.Router();
 
+/**
+ * @description GET /createGame
+ * Render view createGame
+ */
 router.get('/', (req, res, next) => {
   try {
     res.status(200).render('createGame', {});
@@ -12,6 +21,10 @@ router.get('/', (req, res, next) => {
   }
 });
 
+/**
+ * @description POST /createGame
+ * Add a new game to the database
+ */
 router.post('/', (req, res, next) => {
   try {
     const { gamer } = req.body;
@@ -47,9 +60,6 @@ router.post('/', (req, res, next) => {
         message: "Game creation failed"
       })});
       
-    // CreateGame.deleteMany({})
-    //   .then((resMongo) => {console.log(resMongo)})
-    //   .catch((err) => {console.log(err)});  
   } catch (error) {
     next(error);
   }

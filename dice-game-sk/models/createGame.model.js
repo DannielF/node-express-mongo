@@ -1,7 +1,17 @@
+/**
+ * Dependencies
+ */
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { uuid } = require('../utils/uuidRandom');
 
+/**
+ * Mongoose schema
+ * Create a new schema for the game
+ * @author Daniel Granados
+ * @since 02/26/2022
+ * @version 1.0.0
+ */
 const createGameSchema = new Schema({
   id: {
     type: String,

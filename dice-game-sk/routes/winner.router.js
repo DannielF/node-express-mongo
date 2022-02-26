@@ -1,8 +1,17 @@
+/**
+ * @author Daniel Granados
+ * @since 02/26/2022
+ * @version 1.0.0
+ */
 const express = require('express');
 const CreateGame = require('../models/createGame.model');
 
 const router = express.Router();
 
+/**
+ * @description GET /game
+ * @returns {object} game status
+ */
 router.get('/:id', (req, res, next) => {
   try {
     const { id } = req.params;
@@ -39,6 +48,10 @@ router.get('/:id', (req, res, next) => {
   }
 });
 
+/**
+ * @description GET /game
+ * @returns {object} game winner only
+ */
 router.get('/:id/winner', (req, res, next) => {
   try {
     const { id } = req.params;

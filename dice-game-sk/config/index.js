@@ -1,3 +1,11 @@
+/**
+ * Load environment variables from .env file contents
+ * into process.env
+ * @see [dotenv]("https://www.npmjs.com/package/dotenv")
+ * @author Daniel Granados
+ * @since 02/26/2022
+ * @version 1.0.0
+ */
 require('dotenv').config();
 
 const config = {
