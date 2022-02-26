@@ -14,8 +14,31 @@ const createGameSchema = new Schema({
     default: '',
   },
   gamers: [{
-    id: String, name: String
-  }]
+    id: {
+      type: String,
+      default: uuid(),
+      unique: true,
+    }, name: {
+      type: String,
+      trim: true,
+      default: '',
+    }
+  }],
+  Inprogress: {
+    type: Boolean,
+    default: false,
+  },
+  winner: {
+    id: {
+      type: String,
+      default: '',
+    },
+    name: {
+      type: String,
+      trim: true,
+      default: '',
+    }
+  }
 });
 
 module.exports = CreateGame = mongoose.model('CreateGame', createGameSchema);

@@ -14,26 +14,23 @@ router.post('/', (req, res, next) => {
   try {
     const { id, gamerBet } = req.body;
     CreateGame.findOne({id:id})
-      .then((resMongo) => {res.status(201).json({
-        "id": resMongo.id,
+      .then((resDb) => {res.status(201).json({
+        "id": resDb.id,
         "type": "",
-        "gamerBet": {
-          "1": {
-            "id":resMongo.gamers[0].id,
-            "bet":gamerBet[0],
-          },
-          "2": {
-            "id":resMongo.gamers[1].id,
-            "bet":gamerBet[1],
-          },
-          "3": {
-            "id":resMongo.gamers[2].id,
-            "bet":gamerBet[2],
+        "gamerBet": [{
+          "id": resDb.gamers[0].id,
+          "bet": gamerBet[0],
+          },{
+          "id": resDb.gamers[1].id,
+          "bet": gamerBet[1],
+          },{
+          "id": resDb.gamers[2].id,
+          "bet": gamerBet[2],
           }
-        }
+        ]
       })})
       .catch((err) => {res.status(404).json({
-        "error": err,
+        "error": err.message,
         "message": "Game not found"
       })});
     

@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+
 const { mongoConnect } = require('./db/mongo.connect');
 const routerApi = require('./routes');
 const { logErrors, errorHandler} = require('./middlewares/error.handler');

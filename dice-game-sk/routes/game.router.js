@@ -27,22 +27,23 @@ router.post('/', (req, res, next) => {
       },{
         id: uuid(),
         name: gamer[2],
-      }]
+      }],
+      Inprogress: true,
+      winner: {
+        id: "",
+        name: "",
+      }
     });
     game.save()
       .then((resDb) => {res.status(201).json(
         {
           id: resDb.id,
-          type: "",
-          gamers: {
-            1: resDb.gamers[0].name,
-            2: resDb.gamers[1].name,
-            3: resDb.gamers[2].name,
-          }
+          type: resDb.type,
+          gamers: gamer
         }
       )})
       .catch((err) => {res.status(404).json({
-        error: err,
+        error: err.message,
         message: "Game creation failed"
       })});
       
