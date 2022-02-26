@@ -9,7 +9,8 @@
   },
   "keywords": [
     "node.js",
-    "REST"
+    "REST",
+    "mongo"
   ],
   "author": "Daniel Granados",
   "license": "MIT",
