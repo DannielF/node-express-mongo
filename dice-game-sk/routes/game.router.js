@@ -55,7 +55,7 @@ router.post('/', (req, res, next) => {
           gamers: gamer
         }
       )})
-      .catch((err) => {res.status(404).json({
+      .catch((err) => {res.status(400).json({
         error: err.message,
         message: "Game creation failed"
       })});
